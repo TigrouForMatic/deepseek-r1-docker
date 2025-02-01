@@ -45,14 +45,14 @@ if ! test_connection; then
 fi
 
 # Vérifier si le modèle est chargé
-if ! curl -s http://localhost:11434/api/tags | grep -q "deepseek-coder"; then
-    echo "ERREUR: Le modèle deepseek-coder n'est pas chargé"
+if ! curl -s http://localhost:11434/api/tags | grep -q "deepseek-r1:1.5b"; then
+    echo "ERREUR: Le modèle deepseek-r1:1.5b n'est pas chargé"
     exit 1
 fi
 
 # Envoyer la requête finale avec stream désactivé
 curl -H "Content-Type: application/json" http://localhost:11434/api/generate -d '{
-  "model": "deepseek-coder:1.3b",
+  "model": "deepseek-r1:1.5b",
   "prompt": "Write a hello world in Python",
   "stream": false
 }'
