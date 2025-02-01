@@ -39,7 +39,7 @@ trap 'cleanup $?' SIGTERM SIGINT SIGQUIT
 
 # Démarrer le service Ollama
 log "Démarrage du service Ollama..."
-ollama serve &
+OLLAMA_HOST=http://0.0.0.0:11434 ollama serve &
 OLLAMA_PID=$!
 
 # Vérifier si le processus Ollama est en cours d'exécution
@@ -64,9 +64,15 @@ download_model() {
         # if ollama pull deepseek-coder:latest; then
         #     return 0
         # fi
-        if ollama pull deepseek-coder:6.7b; then
+        # if ollama pull deepseek-coder:6.7b; then
+        #     return 0
+        # fi
+        if ollama pull deepseek-coder:1.3b; then
             return 0
         fi
+        # if ollama pull deepseek-coder; then
+        #     return 0
+        # fi
         attempt=$((attempt + 1))
         sleep 5
     done
