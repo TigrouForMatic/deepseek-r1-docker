@@ -13,7 +13,7 @@ test_connection() {
         
         # Test avec une requête simple
         response=$(curl -s -w "%{http_code}" -H "Content-Type: application/json" --max-time 10 http://localhost:11434/api/generate -d '{
-            "model": "deepseek-coder:1.3b",
+            "model": "deepseek-r1:8b",
             "prompt": "test",
             "stream": false
         }' 2>/dev/null)
@@ -45,15 +45,15 @@ if ! test_connection; then
 fi
 
 # Vérifier si le modèle est chargé
-if ! curl -s http://localhost:11434/api/tags | grep -q "deepseek-r1:1.5b"; then
-    echo "ERREUR: Le modèle deepseek-r1:1.5b n'est pas chargé"
+if ! curl -s http://localhost:11434/api/tags | grep -q "deepseek-r1:8b"; then
+    echo "ERREUR: Le modèle deepseek-r1:8b n'est pas chargé"
     exit 1
 fi
 
 # Envoyer la requête finale avec stream désactivé
 curl -H "Content-Type: application/json" http://localhost:11434/api/generate -d '{
-  "model": "deepseek-r1:1.5b",
-  "prompt": "Write a hello world in Python",
+  "model": "deepseek-r1:8b",
+  "prompt": "Donne moi une approximation de la population de la France en 2023",
   "stream": false
 }'
 

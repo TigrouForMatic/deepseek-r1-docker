@@ -67,7 +67,7 @@ download_model() {
         # if ollama pull deepseek-r1:7b; then
         #     return 0
         # fi
-        if ollama pull deepseek-r1:1.5b; then
+        if ollama pull deepseek-r1:8b; then
             return 0
         fi
         # if ollama pull deepseek-r1; then
@@ -81,14 +81,14 @@ download_model() {
 }
 
 # Télécharger et charger le modèle deepseek-coder
-log "Téléchargement du modèle deepseek-r1:1.5b..."
+log "Téléchargement du modèle deepseek-r1:8b..."
 if ! download_model; then
-    log "ERREUR: Échec du téléchargement du modèle deepseek-r1:1.5b après plusieurs tentatives"
+    log "ERREUR: Échec du téléchargement du modèle deepseek-r1:8b après plusieurs tentatives"
     cleanup $E_OLLAMA_PULL
 fi
 
 log "Service Ollama démarré avec succès"
-log "Modèle deepseek-r1:1.5b chargé avec succès"
+log "Modèle deepseek-r1:8b chargé avec succès"
 
 # Garder le conteneur en vie et surveiller le processus Ollama
 while true; do
