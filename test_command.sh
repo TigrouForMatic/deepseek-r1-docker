@@ -51,13 +51,10 @@ if ! curl -s http://localhost:11434/api/tags | grep -q "deepseek-coder"; then
 fi
 
 # Envoyer la requête finale avec stream désactivé
-response=$(curl -H "Content-Type: application/json" http://localhost:11434/api/generate -d '{
+curl -H "Content-Type: application/json" http://localhost:11434/api/generate -d '{
   "model": "deepseek-coder:1.3b",
   "prompt": "Write a hello world in Python",
   "stream": false
-}')
-
-echo "Réponse du serveur:"
-echo "$response"
+}'
 
 echo "Génération de code terminée"
