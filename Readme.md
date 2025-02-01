@@ -52,7 +52,7 @@ Le service sera accessible sur `http://localhost:11434`
 - Gestion automatique des dépendances
 - Nettoyage des processus existants
 - Vérification de l'état du service
-- Téléchargement automatique du modèle DeepSeek Coder (actuellement seule la version 1.3b est disponible)
+- Téléchargement automatique du modèle DeepSeek R1 (actuellement seule la version 1.5b est disponible)
 
 ## API
 
