@@ -54,6 +54,10 @@ Le service sera accessible sur `http://localhost:11434`
 - Vérification de l'état du service
 - Téléchargement automatique du modèle DeepSeek Coder (actuellement seule la version 1.3b est disponible)
 
+## API
+
+Ce projet utilise l'[API officielle d'Ollama](https://github.com/ollama/ollama/blob/main/docs/api.md#list-local-models) pour interagir avec les modèles. Consultez la documentation de l'API pour plus de détails sur les endpoints disponibles.
+
 ## Dépannage
 
 Si vous rencontrez des problèmes :
